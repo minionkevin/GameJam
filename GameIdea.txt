@@ -1,0 +1,34 @@
+Haha funny game
+
+2 worlds - square world, greyscale; and round world, colorful
+
+find/collect fragments of the other universe in each world, are odd-one-out objects
+
+1st person camera, 3d environment
+
+player mechanics: walk, jump, run (only backwards), crouch/ crawl
+
+Minor platforming
+
+completing tasks transports you to other world
+
+Pool of locations for fragments to be, randomized locations within the list each playthrough
+
+
+GAMEPLAY LOOP
+- spawn into one of the two worlds
+- find object, collect
+- transport to other world
+- repeat
+- collect enough pieces to complete/repair key item
+- game end
+
+
+TITLE IDEAS (no laugh am bad)
+Restore? Restoration? Something along those lines?
+Lib\Rium
+De\Saturate
+
+POSSIBLE IDEAS
+Speedrun timer
+Hand statues that hold the fragments you’ve collected
