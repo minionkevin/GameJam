@@ -7,13 +7,34 @@ public class PickupBox : MonoBehaviour
 {
     [SerializeField]
     private GameManager.World Currentworld;
+
+    private bool isAttach;
+    private GameObject player;
+
+    private void Start()
+    {
+        isAttach = false;
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.E) && isAttach && player!=null)
+        {
+            GameObject.Find("GameManager").GetComponent<GameManager>().swapPlayerWorld(Currentworld);
+            player.GetComponent<RigidbodyFirstPersonController>().enabled = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("BINGUS");
-            GameObject.Find("GameManager").GetComponent<GameManager>().swapPlayerWorld(Currentworld);
-            other.GetComponent<RigidbodyFirstPersonController>().enabled = false;
+            player = other.gameObject;
+            isAttach = true;
         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        isAttach = false;
     }
 }

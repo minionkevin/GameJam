@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\MirrorRotation.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\ObjectRotation.cs" />
+    <Compile Include="Assets\Scripts\TopPickupObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
