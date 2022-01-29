@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
