@@ -9,6 +9,8 @@ public class FadeController : MonoBehaviour
     private Image FadeImg;
     [SerializeField]
     private float fadeSpeed = 0.5f;
+    [SerializeField]
+    private GameManager manager;
     private bool sceneStarting = true;
 
     private void Awake()
@@ -18,7 +20,7 @@ public class FadeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,31 +36,40 @@ public class FadeController : MonoBehaviour
     {
         FadeToClear();
 
-        if(FadeImg.color.a <= 0.05f)
+        if (FadeImg.color.a <= 0.1f)
         {
             FadeImg.color = Color.clear;
             FadeImg.enabled = false;
+
 
             sceneStarting = false;
         }
     }
 
-    public void fadeOut()
+    public void fadeIn()
     {
-        sceneStarting = false;
-        StartCoroutine(FadeOutRoutine());
+        sceneStarting = true;
     }
 
-    IEnumerator FadeOutRoutine()
+    public void fadeOut(GameManager.World swapFrom)
+    {
+        sceneStarting = false;
+        StartCoroutine(FadeOutRoutine(swapFrom));
+    }
+
+    IEnumerator FadeOutRoutine(GameManager.World swapFrom)
     {
         FadeImg.enabled = true;
         while (true)
         {
             FadeToWhite();
 
-            if(FadeImg.color.a >= 0.95f)
+            if (FadeImg.color.a >= 0.90f)
             {
                 //Do the teleport here!
+                FadeImg.color = Color.white;
+                manager.movePlayer(swapFrom);
+                fadeIn();
                 yield break;
             }
             else

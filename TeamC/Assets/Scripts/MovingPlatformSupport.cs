@@ -54,7 +54,10 @@ public class MovingPlatformSupport : MonoBehaviour
                 moveDirection = Vector3.Lerp(moveDirection, Vector3.zero, Time.deltaTime);
                 controller.Move(moveDirection);
             }
+            gameObject.transform.SetParent(activePlatform.transform, true);
+            gameObject.transform.localScale = new Vector3(1,1,1);
         }
+
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -82,5 +85,8 @@ public class MovingPlatformSupport : MonoBehaviour
         //rotation
         activeGlobalPlatformRotation = transform.rotation;
         activeLocalPlatformRotation = Quaternion.Inverse(activePlatform.rotation) * transform.rotation;
+
+        gameObject.transform.SetParent(activePlatform.transform, true);
+        gameObject.transform.localScale = new Vector3(1 / activePlatform.localScale.x, 1 / activePlatform.localScale.y, 1 / activePlatform.localScale.z);
     }
 }

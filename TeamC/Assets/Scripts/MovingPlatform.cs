@@ -13,9 +13,28 @@ public class MovingPlatform : MonoBehaviour
 
     [SerializeField]
     private float moveSpeed = 2f;
+
+    [SerializeField]
+    private GameObject player;
+
     private bool returning = false;
     private CharacterController controller;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            player.transform.parent = transform;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            player.transform.parent = null;
+        }
+    }
 
     private void FixedUpdate()
     {

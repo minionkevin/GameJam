@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PickupBox : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PickupBox : MonoBehaviour
         {
             Debug.Log("BINGUS");
             GameObject.Find("GameManager").GetComponent<GameManager>().swapPlayerWorld(Currentworld);
+            other.GetComponent<RigidbodyFirstPersonController>().enabled = false;
         }
     }
 }

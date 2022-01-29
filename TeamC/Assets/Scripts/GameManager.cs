@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,13 +14,21 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Transform roundWorldSpawn;
 
+    [SerializeField]
+    private FadeController fader;
+
     public enum World
     {
         SQURARE, ROUND
     }
     public void swapPlayerWorld(World swapFrom)
     {
-        playerLoc.GetComponent<CharacterController>().enabled = false;
+        fader.fadeOut(swapFrom);
+    }
+
+    public void movePlayer(World swapFrom)
+    {
+        playerLoc.GetComponent<RigidbodyFirstPersonController>().enabled = false;
         switch (swapFrom)
         {
             case World.SQURARE:
@@ -30,6 +39,6 @@ public class GameManager : MonoBehaviour
                 break;
 
         }
-        playerLoc.GetComponent<CharacterController>().enabled = true;
+        playerLoc.GetComponent<RigidbodyFirstPersonController>().enabled = true;
     }
 }
