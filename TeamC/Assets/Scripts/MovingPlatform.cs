@@ -2,45 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Moving Platform Script
 public class MovingPlatform : MonoBehaviour
 {
+    //Loc1 and Loc2 cannot be children of the moving platform
     [SerializeField]
     private GameObject loc1;
     [SerializeField]
     private GameObject loc2;
+
     [SerializeField]
-    private float moveSpeed;
+    private float moveSpeed = 2f;
     private bool returning = false;
+    private CharacterController controller;
+
 
     private void FixedUpdate()
     {
-        if(returning) 
+        if (returning)
         {
-            if(transform.position != loc1.transform.position)
+            transform.position = Vector3.MoveTowards(transform.position, loc1.transform.position, Time.deltaTime * moveSpeed);
+            if(Vector3.Distance(transform.position, loc1.transform.position) < 0.001f)
             {
-                Vector3 dir = transform.position - loc1.transform.position;
-                dir = -dir.normalized;
-
-                transform.position += dir * Time.deltaTime * moveSpeed;
+                returning = !returning;
             }
-            else
-            {
-                returning = false;
-            }
-
         }
         else
         {
-            if (transform.position != loc2.transform.position)
+            transform.position = Vector3.MoveTowards(transform.position, loc2.transform.position, Time.deltaTime * moveSpeed);
+            if (Vector3.Distance(transform.position, loc2.transform.position) < 0.001f)
             {
-                Vector3 dir = transform.position - loc2.transform.position;
-                dir = -dir.normalized;
-
-                transform.position += dir * Time.deltaTime * moveSpeed;
-            }
-            else
-            {
-                returning = true;
+                returning = !returning;
             }
         }
     }

@@ -28,6 +28,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
+        [SerializeField]
+        private Transform lHand;
+        [SerializeField]
+        private Transform rHand;
+
         private Camera m_Camera;
         private bool m_Jump;
         private float m_YRotation;
@@ -180,6 +185,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void UpdateCameraPosition(float speed)
         {
             Vector3 newCameraPosition;
+            Vector3 newLHandPosition = lHand.position;
+            Vector3 newRHandPosition = lHand.position;
+
             if (!m_UseHeadBob)
             {
                 return;
@@ -191,6 +199,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                       (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
+
             }
             else
             {
