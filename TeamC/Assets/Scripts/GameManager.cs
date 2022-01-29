@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private GameObject playerLoc;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private Transform cubeWorldSpawn;
+
+    [SerializeField]
+    private Transform roundWorldSpawn;
+
+    public enum World
     {
-        
+        SQURARE, ROUND
+    }
+    public void swapPlayerWorld(World swapFrom)
+    {
+        playerLoc.GetComponent<CharacterController>().enabled = false;
+        switch (swapFrom)
+        {
+            case World.SQURARE:
+                playerLoc.transform.position = roundWorldSpawn.position;
+                break;
+            case World.ROUND:
+                playerLoc.transform.position = cubeWorldSpawn.position;
+                break;
+
+        }
+        playerLoc.GetComponent<CharacterController>().enabled = true;
     }
 }
