@@ -10,6 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private GameObject leftHand;
     [SerializeField]
     private GameObject rightHand;
+    [SerializeField]
+    private GameObject leftNote;
+    [SerializeField]
+    private GameObject rightNote;
+    [SerializeField]
+    private float height = 0.8f;
+
 
     private Camera camera;
     private bool isDown;
@@ -21,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     private float leftH;
     private float rightH;
 
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,13 +44,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if(!isDown)
             {
-                cameraPos = camera.transform.position.y / 2;
+                cameraPos = camera.transform.position.y * height;
                 holder = camera.transform.position;
                 holderRight = rightHand.transform.position;
                 holderLeft = leftHand.transform.position;
 
-                leftH = leftHand.transform.position.y / 2;
-                rightH = rightHand.transform.position.y / 2;
+                leftH = leftHand.transform.position.y * height;
+                rightH = rightHand.transform.position.y * height;
             }
 
             isDown = true;
@@ -57,8 +66,8 @@ public class PlayerMovement : MonoBehaviour
         {
             isDown = false;
             time = 0;
-            leftHand.transform.position = new Vector3(leftHand.transform.position.x, holderLeft.y, leftHand.transform.position.z);
-            rightHand.transform.position = new Vector3(rightHand.transform.position.x, holderRight.y, rightHand.transform.position.z);
+            leftHand.transform.position = new Vector3(leftHand.transform.position.x, leftNote.transform.position.y, leftHand.transform.position.z);
+            rightHand.transform.position = new Vector3(rightHand.transform.position.x, rightNote.transform.position.y, rightHand.transform.position.z);
 
         }
     }

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &38389336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2776868935945700486, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
+  m_PrefabInstance: {fileID: 1946417191913802431}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &114076916
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +797,6 @@ GameObject:
   - component: {fileID: 577610839}
   - component: {fileID: 577610838}
   - component: {fileID: 577610837}
-  - component: {fileID: 577610836}
   - component: {fileID: 577610835}
   m_Layer: 0
   m_Name: PickUpTester (1)
@@ -814,19 +818,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
---- !u!114 &577610836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577610834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f53b1801856b1d241a7a05ea4934f26d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Currentworld: 0
 --- !u!65 &577610837
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1149,6 +1140,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &879642932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 634665801097268604, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
+  m_PrefabInstance: {fileID: 1946417191913802431}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &984231141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,15 +2100,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1946417191786668985, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.48
+      value: -5.75
       objectReference: {fileID: 0}
     - target: {fileID: 1946417191786668985, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.76
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 1946417191786668985, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.62
+      value: 3.21
       objectReference: {fileID: 0}
     - target: {fileID: 1946417191786668985, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2146,10 +2142,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: RigidBodyFPSController
       objectReference: {fileID: 0}
+    - target: {fileID: 1946417191787232699, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1946417191798832187, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
+    - target: {fileID: 1946417193312835457, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
+      propertyPath: leftNote
+      value: 
+      objectReference: {fileID: 38389336}
+    - target: {fileID: 1946417193312835457, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
+      propertyPath: rightNote
+      value: 
+      objectReference: {fileID: 879642932}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f99a50ae00364824b8f1c9581c222319, type: 3}
 --- !u!1001 &2650357094991751894
