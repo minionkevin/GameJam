@@ -42,9 +42,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            if(!isDown)
+            cameraPos = camera.transform.position.y * height;
+            if (!isDown)
             {
-                cameraPos = camera.transform.position.y * height;
+                //cameraPos = camera.transform.position.y * height;
                 holder = camera.transform.position;
                 holderRight = rightHand.transform.position;
                 holderLeft = leftHand.transform.position;
