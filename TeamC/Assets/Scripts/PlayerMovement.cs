@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isGround;
     private float colliderHolder;
 
+
+    private bool test;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,16 +43,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(test);
         leftHand.transform.rotation = camera.transform.rotation;
         rightHand.transform.rotation = camera.transform.rotation;
 
         if (controller.Grounded) isGround = true;
         else isGround = false;
 
-        Debug.Log(isGround);
+        if (!isGround||tester)
+        {
+            resetPosition();
+        }
+
+        //Debug.Log(isGround);
 
         if (Input.GetKey(KeyCode.LeftControl))
-        {
+        { 
             if (!tester)
             {
                 targetHeight = camera.transform.position.y - crouchHeight;
@@ -59,9 +67,10 @@ public class PlayerMovement : MonoBehaviour
                 collider.height /= 1.1f;
                 tester = true;
             }
-            camera.transform.position = new Vector3(camera.transform.position.x, targetHeight, camera.transform.position.z);
-            leftHand.transform.position = new Vector3(leftHand.transform.position.x, targetHeightLeft, leftHand.transform.position.z);
-            rightHand.transform.position = new Vector3(rightHand.transform.position.x, targetHeightRight, rightHand.transform.position.z);
+
+                camera.transform.position = new Vector3(camera.transform.position.x, targetHeight, camera.transform.position.z);
+                leftHand.transform.position = new Vector3(leftHand.transform.position.x, targetHeightLeft, leftHand.transform.position.z);
+                rightHand.transform.position = new Vector3(rightHand.transform.position.x, targetHeightRight, rightHand.transform.position.z);
         }
 
 
@@ -72,11 +81,16 @@ public class PlayerMovement : MonoBehaviour
                 resetPosition();
             }
         }
+    }
 
-        if (!isGround)
-        {
-            resetPosition();
-        }
+    private void OnTriggerExit(Collider other)
+    {
+        test = false;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        test = true;
     }
 
     private void resetPosition()

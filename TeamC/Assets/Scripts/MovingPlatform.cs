@@ -14,11 +14,15 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 2f;
 
-    [SerializeField]
     private GameObject player;
 
     private bool returning = false;
     private CharacterController controller;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
