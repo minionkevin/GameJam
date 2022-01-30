@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         if (controller.Grounded) isGround = true;
         else isGround = false;
 
+        Debug.Log(isGround);
 
         if (Input.GetKey(KeyCode.LeftControl))
         {

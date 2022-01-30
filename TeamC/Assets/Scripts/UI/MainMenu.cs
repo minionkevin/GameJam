@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("GameJamTestScene");
+        SceneManager.LoadScene("MainLevel");
     }
 
     public void ExitGame()
