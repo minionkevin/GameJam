@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float downSpeed = 2f;
     [SerializeField]
     private GameObject leftHand;
     [SerializeField]
@@ -16,60 +15,75 @@ public class PlayerMovement : MonoBehaviour
     private GameObject rightNote;
     [SerializeField]
     private float height = 0.8f;
-
+    [SerializeField]
+    private RigidbodyFirstPersonController controller;
+    [SerializeField]
+    private CapsuleCollider collider;
 
     private Camera camera;
-    private bool isDown;
-    Vector3 holder;
-    Vector3 holderRight;
-    Vector3 holderLeft;
-    private float cameraPos;
-    private float time;
-    private float leftH;
-    private float rightH;
+    private float crouchHeight = 0.2f;
+    bool tester = false;
+    float targetHeight;
+    float targetHeightLeft;
+    float targetHeightRight;
+    [SerializeField]
+    private Transform originalCamera;
+    private bool isGround;
+    private float colliderHolder;
 
-
-    
     // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main;
-        isDown = false;
+        isGround = true;
+        colliderHolder = collider.height; 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        leftHand.transform.rotation = camera.transform.rotation;
+        rightHand.transform.rotation = camera.transform.rotation;
+
+        if (controller.Grounded) isGround = true;
+        else isGround = false;
+
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            cameraPos = camera.transform.position.y * height;
-            if (!isDown)
+            if (!tester)
             {
-                //cameraPos = camera.transform.position.y * height;
-                holder = camera.transform.position;
-                holderRight = rightHand.transform.position;
-                holderLeft = leftHand.transform.position;
-
-                leftH = leftHand.transform.position.y * height;
-                rightH = rightHand.transform.position.y * height;
+                targetHeight = camera.transform.position.y - crouchHeight;
+                targetHeightLeft = leftHand.transform.position.y - crouchHeight;
+                targetHeightRight = rightHand.transform.position.y - crouchHeight;
+                collider.height /= 1.1f;
+                tester = true;
             }
-
-            isDown = true;
-            time = time + Time.deltaTime * downSpeed;
-            float result = Mathf.Lerp(holder.y, cameraPos, time);
-            float leftHandResult = Mathf.Lerp(holderLeft.y, leftH, time);
-            float rightHandResult = Mathf.Lerp(holderRight.y, rightH, time);
-            camera.transform.position = new Vector3(camera.transform.position.x, result, camera.transform.position.z);
-            leftHand.transform.position = new Vector3(leftHand.transform.position.x, leftHandResult, leftHand.transform.position.z);
-            rightHand.transform.position = new Vector3(rightHand.transform.position.x, rightHandResult, rightHand.transform.position.z);
+            camera.transform.position = new Vector3(camera.transform.position.x, targetHeight, camera.transform.position.z);
+            leftHand.transform.position = new Vector3(leftHand.transform.position.x, targetHeightLeft, leftHand.transform.position.z);
+            rightHand.transform.position = new Vector3(rightHand.transform.position.x, targetHeightRight, rightHand.transform.position.z);
         }
+
+
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            isDown = false;
-            time = 0;
-            leftHand.transform.position = new Vector3(leftHand.transform.position.x, leftNote.transform.position.y, leftHand.transform.position.z);
-            rightHand.transform.position = new Vector3(rightHand.transform.position.x, rightNote.transform.position.y, rightHand.transform.position.z);
-
+            if (tester)
+            {
+                resetPosition();
+            }
         }
+
+        if (!isGround)
+        {
+            resetPosition();
+        }
+    }
+
+    private void resetPosition()
+    {
+        camera.transform.position = new Vector3(camera.transform.position.x, originalCamera.position.y, camera.transform.position.z);
+        leftHand.transform.position = new Vector3(leftHand.transform.position.x, leftNote.transform.position.y + crouchHeight, leftHand.transform.position.z);
+        rightHand.transform.position = new Vector3(rightHand.transform.position.x, rightNote.transform.position.y + crouchHeight, rightHand.transform.position.z);
+        collider.height = colliderHolder;
+        tester = false;
     }
 }
