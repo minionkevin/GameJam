@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour
@@ -106,5 +107,6 @@ public class GameManager : MonoBehaviour
     void gameOver()
     {
         Debug.Log("WINNER");
+        SceneManager.LoadScene("End");
     }
 }
