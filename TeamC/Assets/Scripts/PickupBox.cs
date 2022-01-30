@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class PickupBox : MonoBehaviour
 {
     [SerializeField]
-    private GameManager.World Currentworld;
+    public GameManager.World Currentworld;
 
     private bool isAttach;
     private GameObject player;

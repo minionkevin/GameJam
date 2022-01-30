@@ -11,7 +11,10 @@ public class FadeController : MonoBehaviour
     private float fadeSpeed = 0.5f;
     [SerializeField]
     private GameManager manager;
-    private bool sceneStarting = true;
+    private bool sceneStarting = false;
+    [SerializeField]
+    private AudioSource BGM;
+
 
     private void Awake()
     {
@@ -86,5 +89,6 @@ public class FadeController : MonoBehaviour
     void FadeToWhite()
     {
         FadeImg.color = Color.Lerp(FadeImg.color, Color.white, fadeSpeed * Time.deltaTime);
+        BGM.volume = Mathf.Lerp(BGM.volume, 0, fadeSpeed * Time.deltaTime);
     }
 }
