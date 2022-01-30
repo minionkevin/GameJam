@@ -11,6 +11,8 @@ public class PickupBox : MonoBehaviour
     private bool isAttach;
     private GameObject player;
 
+    private bool activated = false;
+
     private void Start()
     {
         isAttach = false;
@@ -18,10 +20,12 @@ public class PickupBox : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.E) && isAttach && player!=null)
+        if(Input.GetKey(KeyCode.E) && isAttach && player!=null && activated == false)
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().swapPlayerWorld(Currentworld);
             player.GetComponent<RigidbodyFirstPersonController>().enabled = false;
+            activated = true;
+            Destroy(gameObject);
         }
     }
 
