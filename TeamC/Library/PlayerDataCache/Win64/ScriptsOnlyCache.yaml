@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - GameManager
     - MainMenu
     - MovingPlatform
+    - ObjectRotation
     - PickupBox
     - PlayerMovement
     - Timer
@@ -88,6 +89,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -95,11 +98,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1602}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 3196}
+      Script: {instanceID: 2702}
     - Class: 114
-      Script: {instanceID: 308500}
+      Script: {instanceID: 3158}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -143,8 +146,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -158,27 +159,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1604}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 3018}
+      Script: {instanceID: 2980}
     - Class: 114
-      Script: {instanceID: 3854}
+      Script: {instanceID: 3500}
     - Class: 114
-      Script: {instanceID: 4644}
+      Script: {instanceID: 3816}
     - Class: 114
-      Script: {instanceID: 5730}
+      Script: {instanceID: 4606}
     - Class: 114
-      Script: {instanceID: 5958}
+      Script: {instanceID: 5692}
     - Class: 114
-      Script: {instanceID: 6034}
+      Script: {instanceID: 5920}
     - Class: 114
-      Script: {instanceID: 6304}
+      Script: {instanceID: 5996}
     - Class: 114
-      Script: {instanceID: 6528}
+      Script: {instanceID: 6266}
     - Class: 114
-      Script: {instanceID: 7074}
+      Script: {instanceID: 6490}
     - Class: 114
-      Script: {instanceID: 7766}
+      Script: {instanceID: 7036}
+    - Class: 114
+      Script: {instanceID: 7728}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -226,6 +229,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -241,83 +246,83 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1604}
     - Class: 114
-      Script: {instanceID: 1650}
+      Script: {instanceID: 1610}
     - Class: 114
-      Script: {instanceID: 1788}
+      Script: {instanceID: 1748}
     - Class: 114
-      Script: {instanceID: 2340}
+      Script: {instanceID: 2300}
     - Class: 114
-      Script: {instanceID: 2432}
+      Script: {instanceID: 2392}
     - Class: 114
-      Script: {instanceID: 2448}
+      Script: {instanceID: 2408}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 3132}
+      Script: {instanceID: 3094}
     - Class: 114
-      Script: {instanceID: 3256}
+      Script: {instanceID: 3218}
     - Class: 114
-      Script: {instanceID: 3278}
+      Script: {instanceID: 3240}
     - Class: 114
-      Script: {instanceID: 3330}
+      Script: {instanceID: 3292}
     - Class: 114
-      Script: {instanceID: 3460}
+      Script: {instanceID: 3422}
     - Class: 114
-      Script: {instanceID: 3570}
+      Script: {instanceID: 3532}
     - Class: 114
-      Script: {instanceID: 3892}
+      Script: {instanceID: 3854}
     - Class: 114
-      Script: {instanceID: 3998}
+      Script: {instanceID: 3960}
     - Class: 114
-      Script: {instanceID: 4306}
+      Script: {instanceID: 4268}
     - Class: 114
-      Script: {instanceID: 5072}
+      Script: {instanceID: 5034}
     - Class: 114
-      Script: {instanceID: 5090}
+      Script: {instanceID: 5052}
     - Class: 114
-      Script: {instanceID: 5152}
+      Script: {instanceID: 5114}
     - Class: 114
-      Script: {instanceID: 5348}
+      Script: {instanceID: 5310}
     - Class: 114
-      Script: {instanceID: 5350}
+      Script: {instanceID: 5312}
     - Class: 114
-      Script: {instanceID: 5370}
+      Script: {instanceID: 5332}
     - Class: 114
-      Script: {instanceID: 5614}
+      Script: {instanceID: 5576}
     - Class: 114
-      Script: {instanceID: 5730}
+      Script: {instanceID: 5692}
     - Class: 114
-      Script: {instanceID: 5848}
+      Script: {instanceID: 5810}
     - Class: 114
-      Script: {instanceID: 5918}
+      Script: {instanceID: 5880}
     - Class: 114
-      Script: {instanceID: 5926}
+      Script: {instanceID: 5888}
     - Class: 114
-      Script: {instanceID: 6032}
+      Script: {instanceID: 5994}
     - Class: 114
-      Script: {instanceID: 6074}
+      Script: {instanceID: 6036}
     - Class: 114
-      Script: {instanceID: 6110}
+      Script: {instanceID: 6072}
     - Class: 114
-      Script: {instanceID: 6186}
+      Script: {instanceID: 6148}
     - Class: 114
-      Script: {instanceID: 6286}
+      Script: {instanceID: 6248}
     - Class: 114
-      Script: {instanceID: 6420}
+      Script: {instanceID: 6382}
     - Class: 114
-      Script: {instanceID: 6536}
+      Script: {instanceID: 6498}
     - Class: 114
-      Script: {instanceID: 6584}
+      Script: {instanceID: 6546}
     - Class: 114
-      Script: {instanceID: 6848}
+      Script: {instanceID: 6810}
     - Class: 114
-      Script: {instanceID: 7182}
+      Script: {instanceID: 7144}
     - Class: 114
-      Script: {instanceID: 7424}
+      Script: {instanceID: 7386}
     - Class: 114
-      Script: {instanceID: 7490}
+      Script: {instanceID: 7452}
     - Class: 114
-      Script: {instanceID: 7740}
+      Script: {instanceID: 7702}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -575,6 +580,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VideoControl
   - hash:
       serializedVersion: 2
       Hash: 1f0602e7bad1e0a9cba31ce292eee8bb
@@ -1637,15 +1648,9 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXRaycastBinder
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: VideoControl
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/MainLevel.unity
   - Assets/Scenes/End.unity
-  playerPath: C:/Users/minionkevin/Desktop/package/build/TeamC.exe
+  playerPath: C:/Users/ndoan/Desktop/GameJam/GameJam/TeamC/Build/TeamC.exe
