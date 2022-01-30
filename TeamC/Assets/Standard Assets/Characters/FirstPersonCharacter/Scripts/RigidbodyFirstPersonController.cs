@@ -21,7 +21,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             [HideInInspector] public float CurrentTargetSpeed = 8f;
 
 #if !MOBILE_INPUT
-            private bool m_Running;
+            public bool m_Running;
 #endif
 
             public void UpdateDesiredTargetSpeed(Vector2 input)
