@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class PickupBox : MonoBehaviour
 {
     [SerializeField]
     public GameManager.World Currentworld;
+    [SerializeField]
+    private ParticleSystem particle;
+    [SerializeField]
+    private VisualEffect effect;
 
     private bool isAttach;
     private GameObject player;
@@ -25,6 +30,8 @@ public class PickupBox : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<GameManager>().swapPlayerWorld(Currentworld);
             player.GetComponent<RigidbodyFirstPersonController>().enabled = false;
             activated = true;
+            effect.Stop();
+            particle.Stop();
             Destroy(gameObject);
         }
     }

@@ -29,7 +29,10 @@ public class GameManager : MonoBehaviour
     private List<Transform> squareWorldPickupSpawns;
 
     [SerializeField]
-    private GameObject pickupPrefab;
+    private GameObject[] RoundpickupPrefabs;
+
+    [SerializeField]
+    private GameObject[] SquarepickupPrefabs;
 
     [SerializeField]
     private AudioSource BGM;
@@ -53,12 +56,12 @@ public class GameManager : MonoBehaviour
         {
             int rand = Random.Range(0, roundWorldPickupSpawns.Count);
 
-            GameObject pickupGO = Instantiate(pickupPrefab, roundWorldPickupSpawns[rand]);
-            pickupGO.GetComponent<PickupBox>().Currentworld = World.ROUND;
+            GameObject pickupGO = Instantiate(RoundpickupPrefabs[i], roundWorldPickupSpawns[rand]);
+            pickupGO.GetComponentInChildren<PickupBox>().Currentworld = World.ROUND;
             roundWorldPickupSpawns.RemoveAt(rand);
 
-            pickupGO = Instantiate(pickupPrefab, squareWorldPickupSpawns[rand]);
-            pickupGO.GetComponent<PickupBox>().Currentworld = World.SQURARE;
+            pickupGO = Instantiate(SquarepickupPrefabs[i], squareWorldPickupSpawns[rand]);
+            pickupGO.GetComponentInChildren<PickupBox>().Currentworld = World.SQURARE;
             squareWorldPickupSpawns.RemoveAt(rand);
         }
     }

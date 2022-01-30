@@ -43,10 +43,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(test);
         leftHand.transform.rotation = camera.transform.rotation;
         rightHand.transform.rotation = camera.transform.rotation;
-
+        /*
         if (controller.Grounded) isGround = true;
         else isGround = false;
 
@@ -80,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 resetPosition();
             }
-        }
+        }*/
     }
 
     private void OnTriggerExit(Collider other)
